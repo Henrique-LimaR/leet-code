@@ -1,43 +1,61 @@
 let romanToInt = function(s) {
-  let result = [];
+  let numbers = [];
 
   for(let z = 0; z < s.length; z++){
     if(s[z] === "I"){
-      result.push(1);
+      numbers.push(1);
     }
     if(s[z] === "V"){
-      result.push(5);
+      numbers.push(5);
     }
     if(s[z] === "X"){
-      result.push(10);
+      numbers.push(10);
     }
     if(s[z] === "L"){
-      result.push(50);
+      numbers.push(50);
     }
     if(s[z] === "C"){
-      result.push(100);
+      numbers.push(100);
     }
     if(s[z] === "D"){
-      result.push(500);
+      numbers.push(500);
     }
     if(s[z] === "M"){
-      result.push(1000)
+      numbers.push(1000)
     }
   };
 
-  let final = result.length - 1;
-  final
-  
-  for(let i = 0; i < final; final--){
-    i++
-  };
+  let equals = 0;
+  let reverse = numbers.reverse();
 
-  return result.reduce((acc, cur) => {
-    if(acc >= cur){
-      return acc + cur;
+  reverse.map((x, y, arr) => {
+    for(let i = 0; i < arr.length; i++){
+      let b = arr[i + 1];
+      let c = arr.length -1;
+      let d = arr[i];
+
+      if(b === undefined){
+        b = arr[c];
+      };
+      if(arr[i] === b){
+        return equals += d;
+      }
+      return;
+    };
+  });
+
+  if(equals != 0){
+    return equals;
+  };
+    return reverse.reduce((first, second) => {
+    if(first > second){
+      return first - second;
     }
-      return cur - acc;
+    if(first < second){
+      return first + second;
+    }
   });
 };
 
-console.log(romanToInt("MCMXCIV"))
+console.log(romanToInt("LVIII")) //expected 3
+//MCMXCIV expected(1994)
