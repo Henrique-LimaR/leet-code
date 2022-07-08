@@ -1,4 +1,5 @@
-About the problem:
+
+About the problem (Descisions)
 
 the return value should be the number of letters deleted from string
  
